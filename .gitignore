@@ -1,0 +1,73 @@
+# ==========================================
+# Python Byte-Compiled / Cache Files
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ==========================================
+# Virtual Environments (Crucial to ignore!)
+# ==========================================
+.venv/
+venv/
+ENV/
+env/
+target/
+.python-version
+.pytest_cache/
+.tox/
+.noop/
+
+# ==========================================
+# Distribution / Packaging / Builds
+# ==========================================
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==========================================
+# Jupyter Notebook Checkpoints
+# ==========================================
+.ipynb_checkpoints
+
+# ==========================================
+# Environment Variables & Secrets (Crucial!)
+# ==========================================
+.env
+.env.*
+*.secret
+secrets/
+
+# ==========================================
+# IDEs and Editors (Optional but recommended)
+# ==========================================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+Thumbs.db
+
+
+# ===========================================
+# Database files
+# ===========================================
+data/*.db

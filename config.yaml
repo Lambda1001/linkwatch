@@ -1,0 +1,9 @@
+db_path: "data/pings.db"
+interval_seconds: 60
+targets:
+  isp: "192.168.100.1"
+  nairobi: "196.223.21.16" #kixp Nairobi
+  europe: "78.46.170.2" #heztner Germany
+fping:
+  count: 4
+  timeout_ms: 2000
