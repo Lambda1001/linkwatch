@@ -34,3 +34,17 @@ def recent_outages(conn, hours: int = 24, loss_threshold: float = 50.0) -> list[
 		AND packet_loss_pct >= ?
 		ORDER BY ts DESC
 	""", (f"-{hours} hours", loss_threshold)).fetchall()
+
+def history(conn, target_label: str, bucket_minutes: int,hours: int = 24)-> list[sqlite3.Row]:
+	seconds = bucket_minutes * 60
+	return conn.execute("""
+		SELECT (ts/?) * ? AS bucket, target_label,
+			ROUND(AVG(rtt_avg), 1) as "Average RTT",
+			ROUND(MIN(rtt_min), 1) AS "Min RTT",
+			ROUND(MAX(rtt_max), 1) AS "Max RTT"
+		FROM pings
+		WHERE target_label = ?
+		AND ts > strftime('%s', 'now', ?)
+		GROUP BY bucket
+		ORDER BY bucket ASC;
+	""", (seconds, seconds, target_label, f"-{hours} hours")).fetchall()
